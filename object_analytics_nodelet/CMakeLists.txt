@@ -194,6 +194,8 @@ set(UNITEST_LIBRARIES ${GTEST_LIBRARIES} ${PROJECT_NAME} pthread ${PCL_IO_LIBRAR
   if(MTEST_TRACKING_ENABLE_VIEW STREQUAL "ON")
      set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DMTEST_TRACKING_ENABLE_VIEW")
   endif()
+  add_executable(otb tests/otb.cpp)
+  target_link_libraries(otb ${GTEST_LIBRARIES} ${PROJECT_NAME})
   add_executable(mtest_tracking tests/mtest_tracking.cpp)
   target_link_libraries(mtest_tracking ${GTEST_LIBRARIES} ${PROJECT_NAME})
 endif()
